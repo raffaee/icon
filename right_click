@@ -1,0 +1,12 @@
+let callback = function(statuses) {
+   statuses.forEach(function(status) {
+       alert('_id:' + asmProperties._id + 
+             ', name:' + asmProperties.name + 
+             ', status:' + status.status +
+             ', state:' + status.state + 
+             ', severity:' + status.severity +
+             ', time:' + new Date(status.time));
+   });
+};
+asmFunctions.getResourceStatus(asmProperties._id,
+                               callback);
