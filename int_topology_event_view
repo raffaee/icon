@@ -1,0 +1,12 @@
+var eventPayload = {
+    "name": "http://ibm.com/tip#NodeClickedOn",
+    "payload": {
+        "product": { "AgileServiceManager": {
+                "resourceName": "{@Node}",
+                "hops": 2,
+                "hopType": "e2e"
+            }
+        }
+    }
+};
+{$param.portletNamespace}sendPortletEvent(eventPayload);
