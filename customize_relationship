@@ -1,0 +1,25 @@
+if (asmSourceProperties._hasStatus || asmTargetProperties._hasStatus) {
+    // object of all ASM's status severities
+    let severityRank = {
+        clear: 0,
+        indeterminate: 1,
+        information: 2,
+        warning: 3,
+        minor: 4,
+        major: 5,
+        critical: 6
+    };
+    let sourceSeverityRank = severityRank[asmSourceProperties._hasStatus] || 0;
+    let targetSeverityRank = severityRank[asmTargetProperties._hasStatus] || 0;
+    let labelString = asmProperties._edgeType;
+    // Show highest Status on relationship label
+    if(sourceSeverityRank > targetSeverityRank) {
+        labelString += ': Status = ' + asmSourceProperties._hasStatus;
+    } else {
+        labelString += ': Status = ' + asmTargetProperties._hasStatus;
+    }
+    return labelString;
+} else {
+    // No status for source or target resources use plain label
+    return asmProperties._edgeType;
+}
